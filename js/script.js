@@ -1,3 +1,11 @@
+// ===== NAV: scroll shrink =====
+const navEl = document.querySelector('.nav');
+if (navEl) {
+  const setScrolled = () => navEl.classList.toggle('scrolled', window.scrollY > 12);
+  setScrolled();
+  window.addEventListener('scroll', setScrolled, { passive: true });
+}
+
 // ===== NAV: mobile burger =====
 const burger = document.querySelector('.nav-burger');
 const navLinks = document.querySelector('.nav-links');
