@@ -1,3 +1,38 @@
+// ===== HERO: story slideshow =====
+(function () {
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  if (!slides.length) return;
+  let current = 0;
+  let timer = null;
+
+  function show(i) {
+    slides[current].classList.remove('active');
+    dots[current] && dots[current].classList.remove('active');
+    current = (i + slides.length) % slides.length;
+    slides[current].classList.add('active');
+    const nextDot = dots[current];
+    if (nextDot) {
+      nextDot.classList.remove('active');
+      void nextDot.offsetWidth; // force reflow so the fill animation restarts
+      nextDot.classList.add('active');
+    }
+  }
+
+  function start() {
+    timer = setInterval(() => show(current + 1), 5000);
+  }
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      show(i);
+      if (timer) { clearInterval(timer); start(); }
+    });
+  });
+
+  start();
+})();
+
 // ===== NAV: scroll shrink =====
 const navEl = document.querySelector('.nav');
 if (navEl) {
