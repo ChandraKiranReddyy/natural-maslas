@@ -131,19 +131,3 @@ document.querySelectorAll('.steps-toggle').forEach(btn => {
   });
 });
 
-// ===== CART: badge counter (front-end only, no real checkout) =====
-let cartCount = 0;
-const cartBadge = document.getElementById('cartBadge');
-function bumpCart(btn) {
-  cartCount++;
-  if (cartBadge) cartBadge.textContent = cartCount;
-  if (btn) {
-    const original = btn.textContent;
-    btn.textContent = 'Added \u2713';
-    btn.classList.add('added');
-    setTimeout(() => { btn.textContent = original; btn.classList.remove('added'); }, 1200);
-  }
-}
-document.querySelectorAll('.add-cart').forEach(btn => {
-  btn.addEventListener('click', () => bumpCart(btn));
-});
