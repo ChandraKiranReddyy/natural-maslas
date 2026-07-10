@@ -1,4 +1,4 @@
-# Natural Masalas — Website
+# RV Natural — Website
 
 Plain HTML/CSS/JS, no build step, no dependencies. Open this folder directly in **Cursor** (File → Open Folder) and edit any `.html` file — refresh the browser to see changes. No `npm install` needed.
 
@@ -7,8 +7,8 @@ Plain HTML/CSS/JS, no build step, no dependencies. Open this folder directly in 
 | Page | File | Notes |
 |---|---|---|
 | Home | `index.html` | Hero, bestsellers, category strip, story teaser |
-| Spices | `spices.html` | 26 SKUs — Whole Spices (12) + Ground Powders (14), filterable |
-| Blends | `blends.html` | 26 SKUs — Blended Masalas (18) + Special Combos (8), filterable |
+| Spices & Pantry | `spices.html` | 16 SKUs — Ground Spices (4) + Whole Spices (3) + Salts (2) + Baking & Pantry (7), filterable |
+| Blends | `blends.html` | 13 SKUs — Vegetarian & All-Purpose (9) + Chicken & Meat (4), filterable |
 | Our Story | `about.html` | Brand story, values, stats |
 | Recipes | `recipes.html` | 6 recipes, each tagged with the SKUs used, expandable method |
 | Blog | `blog.html` | 6 post previews |
@@ -17,16 +17,22 @@ Plain HTML/CSS/JS, no build step, no dependencies. Open this folder directly in 
 
 Shared files: `css/style.css` (all styling/design tokens), `js/script.js` (nav, scroll reveals, filters, cart badge, recipe/step accordions, contact form).
 
+## Assets
+
+- `assets/products/*.jpg` — real product photography, cropped and compressed from the source packaging photos.
+- `assets/brand/logo.png` — the RV Natural logo, cropped from packaging with the background removed.
+- Full-resolution source photos remain in `Images/` (not optimized for web — don't link to these directly).
+
 ## What's real vs. placeholder
 
-- **Real:** layout, responsive design, animations, filtering, SKU data structure, copy voice.
+- **Real:** layout, responsive design, animations, filtering, SKU data structure, product names, product photography, brand logo, copy voice.
 - **Placeholder — replace before launch:**
   - Product prices (₹) — estimates by weight, not your actual MRPs
-  - Product "photos" — these are illustrated jar/bowl SVGs generated in code, not real photography (I can't legally source and host stock photos on a commercial site). Swap the `.prod-media` SVG in each card for a real `<img>` once you have product shots.
   - "Add to Cart" — only bumps the nav cart badge, no real cart or checkout. You'll need an actual e-commerce backend (Shopify, WooCommerce, Snipcart, or a custom cart) for real orders.
   - Contact form — `onsubmit` is intercepted in-browser only; nothing is actually sent. Wire it to a form backend (Formspree, Netlify Forms, your own endpoint) or a `mailto:` before launch.
-  - Address / phone / email in `contact.html` and the footer — all placeholder, update with real details.
+  - Address / phone / email in `contact.html` and the footer — placeholder Bengaluru address, update with your real details.
   - Blog post content — written as example copy, not verified facts.
+  - Brand story copy in `about.html` — written to match the packaging tone, not verified against the real company history. Update with your actual story.
 
 ## Editing tips (Cursor)
 
@@ -36,4 +42,4 @@ Shared files: `css/style.css` (all styling/design tokens), `js/script.js` (nav, 
 
 ## Hosting (free)
 
-Static files, no server needed. Recommended: **Cloudflare Pages** (unlimited free bandwidth) — drag this whole folder into the Cloudflare dashboard under Workers & Pages → Create → Pages → Upload assets. Netlify Drop (app.netlify.com/drop) works too for the fastest first deploy.
+Static files, no server needed. Currently deployed on **GitHub Pages**. Cloudflare Pages and Netlify are also good free options if you switch later.
